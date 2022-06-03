@@ -11,16 +11,16 @@ project="2021-S1-UM-3"
 
 #        obsnums per source (make it negative if not added to the final combination)
 on = {}
-on['UGCA281'] = [99716, 99718, 99720]
+on['UGCA281'] = [-99716, -99718, -99720,
+                 100536, 100538, 100540, 100544, 100546, 100548, 100550, 100554, 100556, 100558,  # 1-jun
+                ]
 #        common parameters per source on the first dryrun (run1, run2)
-common1="admit=0 restart=1 badcb=2/1,2/4"
 pars1 = {}
-pars1['UGCA281'] = ""
+pars1['UGCA281'] = "pix_list=8,10"
 
 #        common parameters per source on subsequent runs (run1a, run2a)
-common2="admit=0 restart=1 srdp=1"
 pars2 = {}
-pars2['UGCA281'] = ""
+pars2['UGCA281'] = "admit=0 srdp=1"
 
 
 # below here no need to change code
