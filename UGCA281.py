@@ -14,8 +14,10 @@ import astropy.units as u
 #
 src = 'UGCA281'
 
-#  list of osbnums
+#  list of obsnums
+on = [99716, 99718 ,99720]   # bad ones, integration too long
 on = [100536, 100538, 100540, 100544, 100546, 100548, 100550, 100554, 100556, 100558]
+
 
 #  range to analyse
 xmin=-200 * u.km/u.s
