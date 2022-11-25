@@ -13,11 +13,13 @@ import astropy.units as u
 
 #
 src = 'UGCA281'
+dir = 'data3'
 
 #  list of obsnums
-on = [99716, 99718 ,99720]   # bad ones, integration too long
-on = [100536, 100538, 100540, 100544, 100546, 100548, 100550, 100554, 100556, 100558]
-
+on = [99716, 99718 ,99720]   # bad ones, integration at 30" too long
+on = [100536, 100538, 100540, 100544, 100546, 100548, 100550, 100554, 100556, 100558]  # 15" integrations
+on = [100554, 100554]
+on = [99716, 99716]
 
 #  range to analyse
 xmin=-200 * u.km/u.s
@@ -27,8 +29,9 @@ xmax= 700 * u.km/u.s
 bmin= 200 * u.km/u.s
 bmax= 350 * u.km/u.s
 
-#  final binning (in pixels)
+#  final binning (in pixels) - use < 0 to skip
 vbin = 5.5
+vbin = -1
 
 #  show individual spectra?
 Qshow = False
@@ -37,7 +40,7 @@ Qshow = False
 s  = []
 for o in on:
     #  pyspeckit should be able to read a spectrum directly if the tabfile is made smarter
-    tabfile = '%s_%d.txt' % (src,o)
+    tabfile = '%s/%d/%s_%d.txt' % (dir,o,src,o)
     data = np.loadtxt(tabfile).T
     x = data[0]
     y = data[1] * 1000
@@ -47,7 +50,8 @@ for o in on:
                            unit='mK')
     sp.baseline.selectregion(xmin=xmin,xmax=xmax, exclude=[bmin,bmax])
     sp.baseline(order=1)
-    sp.smooth(vbin, smoothtype='boxcar', downsample=True)
+    if vbin > 0:
+        sp.smooth(vbin, smoothtype='boxcar', downsample=True)
     s1 = sp.slice(xmin,xmax)
     
     s.append(s1)
