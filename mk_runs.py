@@ -32,5 +32,3 @@ pars2 = {}
 pars2['UGCA281'] = "admit=0 srdp=1"
 
 runs.mk_runs(project, on, pars1, pars2)
-print("DONE")
-sys.exit(0)
