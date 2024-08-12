@@ -25,7 +25,7 @@ on['UGCA281'] = [-99716, -99718, -99720,
                 ]
 #        common parameters per source on the first dryrun (run1, run2)
 pars1 = {}
-pars1['UGCA281'] = "pix_list=8,10"
+pars1['UGCA281'] = "pix_list=10,8"    # standard SEQ Bs
 
 #        common parameters per source on subsequent runs (run1a, run2a)
 pars2 = {}
