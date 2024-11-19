@@ -20,7 +20,7 @@ project="2021-S1-UM-3"
 
 #        obsnums per source (make it negative if not added to the final combination)
 on = {}
-on['UGCA281'] = [-99716, -99718, -99720,
+on['UGCA281'] = [ 99713, -99716, -99718, -99720,
                  100536, 100538, 100540, 100544, 100546, 100548, 100550, 100554, 100556, 100558,  # 1-jun
                 ]
 #        common parameters per source on the first dryrun (run1, run2)
